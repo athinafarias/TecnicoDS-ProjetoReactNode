@@ -37,7 +37,7 @@ function Lista() {
     return (
         <div>
             <Header title="Lista de Usuários" />
-            <Link to="/form">Cadastrar novo usuário</Link>
+            <Link to="/cadastro">Cadastrar novo usuário</Link>
 
             <table>
                 <thead>
