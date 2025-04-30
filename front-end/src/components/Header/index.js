@@ -1,8 +1,9 @@
 // Componente de Header padrão para o projeto
+import './Header.css'
 
-function Header(props) {
+const Header = (props) => {
     return (
-        <header>
+        <header className="Header">
             <h1>{props.title}</h1>
         </header>
     )

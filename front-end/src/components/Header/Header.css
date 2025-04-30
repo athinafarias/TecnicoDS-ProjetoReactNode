@@ -1,0 +1,5 @@
+.Header h1 {
+    font-size: 6.5rem;
+    text-shadow: 0px 0px 20px var(--corPink);
+    margin: 0;
+}

@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 // Importando componentes 
-import Header from '../components/Header'
+import Header from '../../components/Header'
 
 function Lista() {
     // Estado para armazenar a lista de usuários

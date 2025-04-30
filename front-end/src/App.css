@@ -1,1 +1,49 @@
 /* Arquivo de estilos globais da aplicação, afetam apenas o comporente App */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --corPink: #FF80A0;
+    --corRosinha: #FFC9DC;
+    --corRoxo: #C975EB;
+    --corAzul: #5E5FAB;
+    --corAzulEscuro: #392f66;
+    --corAmarelo: #FFCC6B;
+    --corBranco: #f7f0ff;
+
+    --fontText: "Poppins", sans-serif;
+    --fontTitle: "Bebas Neue", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, var(--corAzul) 0%, var(--corAzulEscuro) 100%);
+
+    color: var(--corBranco);
+    font-family: var(--fontText);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+p {
+    line-height: 100%;
+    font-size: 1.2rem;
+}
+
+h1,h2, h3, h4, h5, h6 {
+    font-family: var(--fontTitle);
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: var(--corRosinha);
+    line-height: 100%;
+}
+
+strong {
+    font-weight: 400;
+    color: var(--corAmarelo);
+    font-style: italic;
+}
