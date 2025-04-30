@@ -5,10 +5,10 @@ const database = require('../connection/db')
 //Definindo o modelo de dados
 const Pessoa = database.define('pessoa', {
     id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
+        type: Sequelize.INTEGER, // Tipo do campo
+        autoIncrement: true, // Cria o ID automaticamente
+        allowNull: false, // Não permite nulo
+        primaryKey: true // Define como chave primária
     },	
 
     nome: {

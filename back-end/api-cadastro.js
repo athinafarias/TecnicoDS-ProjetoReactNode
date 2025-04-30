@@ -1,13 +1,13 @@
-// Importação das dependências
+// Importação das dependências do banco de dados
 const express = require('express');
 const cors = require('cors');
-const database = require('./connection/db');
-const Pessoa = require('./models/pessoa');
-
 const app = express();
-
 app.use(cors());
 app.use(express.json());
+
+// Conecta com o banco que criamos e com o modelo de dados
+const database = require('./connection/db');
+const Pessoa = require('./models/pessoa');
 
 // Sincroniza o banco de dados antes de iniciar o servidor
 (async () => {
@@ -24,8 +24,9 @@ app.use(express.json());
 // Endpoints do CRUD
 
 // CREATE
-app.post('/cadastro', async (req, res) => {
+app.post('/cadastro', async (req, res) => { // Rota para cadastrar um novo usuário
     try {
+        // Recebe os dados do formulário
         const { txtNome, txtIdade, selectUF } = req.body
 
         // Validação dos campos
@@ -42,29 +43,32 @@ app.post('/cadastro', async (req, res) => {
 
         // Confirma com mensagem de sucesso
         res.json({ message: 'Usuário cadastrado com sucesso!', user: userCreate })
-    } catch (err) {
+
+    } catch (err) { // Caso ocorra algum erro
         console.error(err)
         res.status(500).json({ message: 'Erro ao cadastrar usuário!' })
     }
 })
 
 // READ
-app.get('/', async (req, res) => {
+app.get('/', async (req, res) => { // Rota para buscar todos os usuários
     try {
         // Busca todos os registros da tabela
         const users = await Pessoa.findAll()
 
         // Retorna os dados em formato JSON
         res.json(users)
-    } catch (err) {
+
+    } catch (err) { // Caso ocorra algum erro
         console.error('Erro:', err)
         res.status(500).json({ message: 'Erro ao buscar usuários!' })
     }
 })
 
 // UPDATE
-app.post('/update', async (req, res) => {
+app.post('/update', async (req, res) => { // Rota para atualizar um usuário
     try {
+        // Recebe os dados do formulário
         const { id, txtNome, txtIdade, selectUF } = req.body
 
         // Busca a pessoa pelo ID
@@ -80,16 +84,19 @@ app.post('/update', async (req, res) => {
             uf: selectUF
         })
 
+        // Confirma com mensagem de sucesso
         res.json({ message: 'Usuário atualizado com sucesso!' })
-    } catch (err) {
+
+    } catch (err) { // Caso ocorra algum erro
         console.error(err)
         res.status(500).json({ message: 'Erro ao atualizar usuário!' })
     }
 })
 
 // DELETE
-app.post('/delete', async (req, res) => {
+app.post('/delete', async (req, res) => { // Rota para deletar um usuário
     try {
+        // Recebe o ID do usuário a ser deletado
         const { id } = req.body
 
         // Deleta o registro com base no ID
@@ -98,11 +105,30 @@ app.post('/delete', async (req, res) => {
             return res.status(404).json({ message: 'Usuário não encontrado!' })
         }
 
+        // Confirma com mensagem de sucesso
         res.json({ message: 'Usuário deletado com sucesso!' })
-    } catch (err) {
+
+    } catch (err) { // Caso ocorra algum erro
         console.error(err)
         res.status(500).json({ message: 'Erro ao deletar usuário!' })
     }
 })
 
-module.exports = app
+// Rota para BUSCAR uma pessoa por ID (para preencher o formulário de EDIÇÃO)
+app.get('/editar/:id', async (req, res) => { 
+    try {
+        // Recebe o ID da pessoa a ser editada
+        const pessoa = await Pessoa.findByPk(req.params.id)
+
+        // Verifica se a pessoa existe
+        if (!pessoa) {
+            return res.status(404).json({ message: 'Usuário não encontrado!' })
+        }
+
+        // Retorna os dados da pessoa encontrada
+        res.json(pessoa) 
+
+    } catch (err) { // Caso ocorra algum erro
+        res.status(500).json({ message: 'Erro ao buscar usuário!' })
+    }
+})

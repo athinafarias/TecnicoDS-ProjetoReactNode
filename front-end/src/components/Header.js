@@ -1,3 +1,5 @@
+// Componente de Header padrão para o projeto
+
 function Header(props) {
     return (
         <header>
