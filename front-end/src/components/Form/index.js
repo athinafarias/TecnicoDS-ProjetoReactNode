@@ -3,6 +3,7 @@
 // Importando dependências
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import './Form.css' 
 
 // Função principal do componente
 function Form() {
@@ -42,31 +43,32 @@ function Form() {
 
     // Retorno do JSX que renderiza o formulário
     return (
-        <div>
+        <div className='Form'>
             <form onSubmit={handleFormSubmit}> {/* Define a função de envio do formulário */}
                 <fieldset>
                     <legend>
-                        <h2>Dados de Cadastro</h2>
+                        <p>✶</p>
+                        <p>Insira seus Dados</p>
                     </legend>
 
                     {/* Campo para o nome */}   
                     <div>
-                        <label>Nome:
-                            <input type="text" name="txtNome" id="txtNome" onChange={handleInputChange}/>
+                        <label>Nome
+                            <input className='InputPadrão' type="text" name="txtNome" id="txtNome" onChange={handleInputChange}/>
                         </label>
                     </div>
 
                     {/* Campo para a idade */}
                     <div>
-                        <label>Idade:
-                            <input type="number" name="txtIdade" id="txtIdade" onChange={handleInputChange}/>
+                        <label>Idade
+                            <input className='InputPadrão' type="number" name="txtIdade" id="txtIdade" onChange={handleInputChange}/>
                         </label>
                     </div>
 
                     {/* Campo para selecionar o estado (UF) */}
                     <div>
-                        <label>UF:
-                            <select name="selectUF" id="selectUF" onChange={handleInputChange}>
+                        <label>UF
+                            <select className='InputPadrão' name="selectUF" id="selectUF" onChange={handleInputChange}>
                                 <option value="0">Selecione uma opção</option> {/* Opção padrão */}
                                 {estados.map( // Mapeia os estados retornados pela API do IBGE
                                     estado =>
@@ -76,12 +78,14 @@ function Form() {
                         </label>
                     </div>
 
+                    <p>✶</p>
+
                     {/* Botão para enviar o formulário */}
-                    <input type="submit" value="Salvar" />
+                    <input className='Enviar' type="submit" value="Salvar" />
 
                 </fieldset>
             </form>
-
+            
         </div>
     )
 }

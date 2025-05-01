@@ -1,0 +1,83 @@
+.Cadastro {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Cadastro .PageContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Cadastro .FormContent {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 0px;
+    border-radius: 20px;
+
+    background-color: var(--corAzulEscuro);
+    box-shadow: 10px 10px 0px var(--sombra), 0px 0px 30px var(--sombra);
+
+    z-index: 1;
+    position: relative;
+}
+
+.Cadastro .Navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.Cadastro .Logo {
+    width: 6%;
+}
+
+.Cadastro .Usagi {
+    filter: drop-shadow(0px 0px 5px var(--sombra));
+
+    position: absolute;
+    top: 50%;
+    left: 24%;
+    transform: translate(-50%, -46%) scale(1.2);
+    z-index: 0;
+
+    mask-image: linear-gradient(to top, #00000000 0%, var(--corAzulEscuro) 60%);
+    -webkit-mask-image: linear-gradient(to top, #00000000 0%, var(--corAzulEscuro) 60%);
+
+    animation: floatCadastro 4s ease-in-out infinite;
+}
+
+.Cadastro .Logo:hover {
+    transition: transform 0.5s ease-in-out;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatCadastro {
+    0%, 100% {
+        transform: translate(-50%, -46%) scale(1.2);;
+    }
+    50% {
+        transform: translate(-50%, -42%) scale(1.2);;
+    }
+}

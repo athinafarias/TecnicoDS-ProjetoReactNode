@@ -5,11 +5,13 @@
 :root {
     --corPink: #FF80A0;
     --corRosinha: #FFC9DC;
-    --corRoxo: #C975EB;
+    --corRoxo: #5e64b4;
     --corAzul: #5E5FAB;
     --corAzulEscuro: #392f66;
-    --corAmarelo: #FFCC6B;
+    --corAmarelo: #ffbe81;
     --corBranco: #f7f0ff;
+
+    --sombra: #17103642;
 
     --fontText: "Poppins", sans-serif;
     --fontTitle: "Bebas Neue", sans-serif;
@@ -27,10 +29,12 @@ body {
     justify-content: center;
     text-align: center;
     height: 100vh;
+
+    overflow: hidden;
 }
 
 p {
-    line-height: 100%;
+    line-height: 120%;
     font-size: 1.2rem;
 }
 

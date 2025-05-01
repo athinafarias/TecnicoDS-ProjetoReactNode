@@ -1,0 +1,14 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    padding: 4px 0px;
+}
+
+.Footer p {
+    font-size: 0.9rem;
+    font-weight: 200;
+}

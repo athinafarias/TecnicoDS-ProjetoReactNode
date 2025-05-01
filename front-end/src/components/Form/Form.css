@@ -1,0 +1,88 @@
+.Form form, fieldset {
+    border: none;
+    outline: none;
+    width: 26vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.Form legend p {
+    margin: 0 0 20px 0;
+}
+
+.Form p {
+    color: var(--corRosinha);
+}
+
+.Form .InputPadrão {
+    background-color: var(--corRoxo);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0px 10px 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    outline: none;
+
+    font-family: var(--fontText);
+    color: var(--corAzulEscuro);
+
+    mask-image: linear-gradient(to left, #00000000 0%, var(--corAzulEscuro) 60%);
+    -webkit-mask-image: linear-gradient(to left, #00000000 0%, var(--corAzulEscuro) 60%);
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.Form .InputPadrão:hover,
+.Form .InputPadrão:focus {
+    background-color: #392f66;
+    color: var(--corAmarelo);
+    border: 1px solid var(--corRoxo);
+}
+
+.Form input[type="number"]::-webkit-inner-spin-button, 
+.Form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Form .Enviar {
+    display: inline-block;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 8px;
+    margin: 24px 0px 0px 0px;
+
+    background: var(--corPink);
+    box-shadow: 5px 5px 0px var(--corAzulEscuro);
+
+    font-family: var(--fontText);
+    color: var(--corAzulEscuro);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.Form .Enviar:hover {
+    background: #ff93ae;
+    box-shadow: 0px 0px 10px var(--corPink), 5px 5px 0px var(--corAzulEscuro);
+    transform: scale(1.04);
+    transition: transform 0.3s ease;
+    color: var(--corAzulEscuro);
+}
+
+.Form label {
+    color: var(--corAmarelo);
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
