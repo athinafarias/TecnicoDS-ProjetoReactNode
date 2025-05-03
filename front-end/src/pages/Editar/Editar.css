@@ -1,0 +1,120 @@
+.Editar {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#5e5faba1, #150e35), url(../../../public/assets/sailor-editar.jpeg) left top no-repeat fixed;
+}
+
+.Editar .Header {
+    margin-bottom: 60px;
+}
+
+.Editar .PageContent {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 0px;
+    border-radius: 20px;
+
+    background-color: var(--corAzulEscuro);
+    box-shadow: 10px 10px 0px var(--sombra), 0px 0px 30px var(--sombra);
+
+    z-index: 1;
+    position: relative;
+}
+
+.Editar .FormEditar {
+    border: none;
+    outline: none;
+    width: 36vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.Editar p {
+    color: var(--corRosinha);
+}
+
+.Editar .InputPadrão {
+    background-color: var(--corAzul);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0px 10px 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    outline: none;
+
+    font-family: var(--fontText);
+    color: var(--corAzulEscuro);
+
+    mask-image: linear-gradient(to left, #00000000 0%, var(--corAzulEscuro) 60%);
+    -webkit-mask-image: linear-gradient(to left, #00000000 0%, var(--corAzulEscuro) 60%);
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.Editar .InputPadrão:hover,
+.Editar .InputPadrão:focus {
+    background-color: #392f66;
+    color: var(--corAmarelo);
+    border: 1px solid var(--corRoxo);
+}
+
+.Editar input[type="number"]::-webkit-inner-spin-button, 
+.Editar input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Editar .Enviar {
+    display: inline-block;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 8px;
+    margin: 24px 0px 0px 0px;
+
+    background: var(--corPink);
+    box-shadow: 5px 5px 0px var(--corAzulEscuro);
+
+    font-family: var(--fontText);
+    color: var(--corAzulEscuro);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.Editar .Enviar:hover {
+    background: #ff93ae;
+    box-shadow: 0px 0px 10px var(--corPink), 5px 5px 0px var(--corAzulEscuro);
+    transform: scale(1.04);
+    transition: transform 0.3s ease;
+    color: var(--corAzulEscuro);
+}
+
+.Editar label {
+    color: var(--corAmarelo);
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.Editar .ButtonOutline {
+    width: 80%;
+}

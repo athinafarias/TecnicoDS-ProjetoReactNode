@@ -33,12 +33,24 @@ function Form() {
     }
 
     // Função para lidar com o envio do formulário
-    function handleFormSubmit(event) {
-        event.preventDefault() // Previne o comportamento padrão de recarregar a página
-        axios.post('http://localhost:3001/cadastro', campos) // Faz uma requisição POST para o endpoint de cadastro no back-end
-            .then(response => {
-                alert(response.data.message) // Exibe uma mensagem de sucesso vinda do back-end
-            })
+    const handleFormSubmit = async (event) => {
+        event.preventDefault(); // Previne o comportamento padrão do formulário
+
+        try { 
+            const response = await axios.post('http://localhost:3001/cadastro', {
+                txtNome: campos.txtNome,
+                txtIdade: campos.txtIdade,
+                selectUF: campos.selectUF
+            });
+    
+            alert(response.data.message); // Exibe a mensagem de sucesso
+        } catch (err) {
+            if (err.response && err.response.data.message) {
+                alert(err.response.data.message); // Exibe a mensagem de erro retornada pelo servidor
+            } else {
+                alert('Erro ao cadastrar usuário!'); // Mensagem genérica para outros erros
+            }
+        }
     }
 
     // Retorno do JSX que renderiza o formulário

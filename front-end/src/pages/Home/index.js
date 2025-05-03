@@ -17,7 +17,7 @@ function Home() {
                 <div className='Content'>
                     <Header title="Bem-vindo!"/>
                     <p>Atividade feita para o Curso Técnico em Desenvolvimento de Sistemas, no Ginásio Pernambucano. Trabalhando conceitos de React e CRUD. <strong>Projeto feito por: Athina Farias e Thayanne Stella</strong></p>
-                    <div className='Navigation'>
+                    <div className='HomeNavigation'>
                         <Button link="/cadastro" texto="Se Cadastre!"/> {/* Botão para ir para a página de cadastro */}
                         <ButtonOutline link="/lista" texto="Lista De Cadastros"/> {/* Botão para ir para a lista de cadastro */}
                     </div>

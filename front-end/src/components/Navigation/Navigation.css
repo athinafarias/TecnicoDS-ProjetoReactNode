@@ -1,0 +1,26 @@
+.Navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.Logo {
+    width: 6%;
+}
+
+.Logo:hover {
+    transition: transform 0.5s ease-in-out;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

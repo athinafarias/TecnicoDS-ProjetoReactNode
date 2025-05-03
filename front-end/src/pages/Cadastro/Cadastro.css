@@ -31,19 +31,6 @@
     position: relative;
 }
 
-.Cadastro .Navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-}
-
-.Cadastro .Logo {
-    width: 6%;
-}
-
 .Cadastro .Usagi {
     filter: drop-shadow(0px 0px 5px var(--sombra));
 
@@ -57,20 +44,6 @@
     -webkit-mask-image: linear-gradient(to top, #00000000 0%, var(--corAzulEscuro) 60%);
 
     animation: floatCadastro 4s ease-in-out infinite;
-}
-
-.Cadastro .Logo:hover {
-    transition: transform 0.5s ease-in-out;
-    animation: spin 1s infinite linear;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 @keyframes floatCadastro {

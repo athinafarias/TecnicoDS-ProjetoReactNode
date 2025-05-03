@@ -3,10 +3,14 @@
 // Importando dependências necessárias
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import './Lista.css'
 
 // Importando componentes 
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import ButtonOutline from '../../components/ButtonOutline'
+import Button from '../../components/Button'
+import Navigation from '../../components/Navigation'
 
 function Lista() {
     // Estado para armazenar a lista de usuários
@@ -44,35 +48,39 @@ function Lista() {
 
     // Retorno do JSX que renderiza a lista de usuários
     return (
-        <div>
-            <Header title="Lista de Usuários" /> 
-            <Link to="/cadastro">Cadastrar novo usuário</Link> {/* Botão para a página de cadastro */}
+        <div className='Lista'>
+            <Navigation buttons={[{ link: '/', texto: 'Home' }, { link: '/cadastro', texto: 'Novo Cadastro' }]}/>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th> 
-                        <th>Idade</th> 
-                        <th>UF</th>
-                        <th>Ações</th> {/* Coluna para as ações (editar/excluir) */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {usuarios.map((user) => ( // Mapeia a lista de usuários para renderizar as linhas da tabela
-                        <tr key={user.id}> 
-                            <td>{user.id}</td> 
-                            <td>{user.nome}</td> 
-                            <td>{user.idade}</td> 
-                            <td>{user.uf}</td> 
-                            <td>
-                                <button onClick={() => deletarUsuario(user.id)}>Excluir</button> {/* Botão para excluir o usuário */}
-                                <Link to={`/editar/${user.id}`}>Editar</Link> {/* Link para a página de edição do usuário */}
-                            </td>
+            <div className='PageContent'>
+                <Header title="Lista de Usuários" />
+                <img className='Sailors' src="../../../assets/sailors-lista.png"></img>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>UF</th>
+                            <th>Ações</th> {/* Coluna para as ações (editar/excluir) */}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {usuarios.map((user) => ( // Mapeia a lista de usuários para renderizar as linhas da tabela
+                            <tr key={user.id}>
+                                <td className='ID'>{user.id}</td>
+                                <td>{user.nome}</td>
+                                <td>{user.idade}</td>
+                                <td>{user.uf}</td>
+                                <td className='Acoes'>
+                                    <ButtonOutline link='' click={() => deletarUsuario(user.id)} texto='Excluir'/>
+                                    <Button link={`/editar/${user.id}`} texto='Editar'/> {/* Link para a página de edição do usuário */}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <Footer />
         </div>
     )
 }

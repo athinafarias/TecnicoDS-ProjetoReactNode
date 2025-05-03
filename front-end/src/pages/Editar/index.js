@@ -4,6 +4,11 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import './Editar.css'
+import Header from '../../components/Header'
+import Navigation from '../../components/Navigation'
+import Footer from '../../components/Footer'
+import ButtonOutline from '../../components/ButtonOutline'
 
 function Editar() {
     // Obtém o parâmetro `id` para a URL, para definir qual usuário editar
@@ -53,39 +58,53 @@ function Editar() {
 
     // Retorno do JSX que renderiza o formulário de edição
     return (
-        <form onSubmit={handleSubmit}> {/* Define a função de envio do formulário */}
-            <h2>Editar Usuário</h2>
-            
-            {/* Campo para o nome */}
-            <input 
-                type="text" 
-                name="txtNome" 
-                value={campos.txtNome} 
-                onChange={handleChange} 
-                placeholder="Nome" 
-            />
+        <div className='Editar'>
+            <Navigation buttons={[{ link: '/', texto: 'Home' }, { link: '/cadastro', texto: 'Novo Cadastro' }]}/>
 
-            {/* Campo para a idade */}
-            <input 
-                type="number" 
-                name="txtIdade" 
-                value={campos.txtIdade} 
-                onChange={handleChange} 
-                placeholder="Idade" 
-            />
-
-            {/* Campo para a UF */}
-            <input 
-                type="text" 
-                name="selectUF" 
-                value={campos.selectUF} 
-                onChange={handleChange} 
-                placeholder="UF" 
-            />
-
-            {/* Botão para salvar as alterações */}
-            <button type="submit">Salvar</button>
-        </form>
+            <div className='PageContent'>
+                <form onSubmit={handleSubmit} className='FormEditar'> {/* Define a função de envio do formulário */}
+                    <Header title="Editar Usuário" />
+                
+                    {/* Campo para o nome */}
+                    <label>Nome
+                        <input
+                            type="text"
+                            name="txtNome"
+                            value={campos.txtNome}
+                            onChange={handleChange}
+                            placeholder="Nome"
+                            className='InputPadrão'
+                        />
+                    </label>
+                    {/* Campo para a idade */}
+                    <label>Idade
+                        <input
+                            type="number"
+                            name="txtIdade"
+                            value={campos.txtIdade}
+                            onChange={handleChange}
+                            placeholder="Idade"
+                            className='InputPadrão'
+                        />
+                    </label>
+                    {/* Campo para a UF */}
+                    <label>UF
+                        <input
+                            type="text"
+                            name="selectUF"
+                            value={campos.selectUF}
+                            onChange={handleChange}
+                            placeholder="UF"
+                            className='InputPadrão'
+                        />
+                    </label>
+                    {/* Botão para salvar as alterações */}
+                    <button className='Enviar' type="submit">Salvar</button>
+                </form>
+                <ButtonOutline link='/lista' texto='Voltar para Lista'/>
+            </div>
+            <Footer />
+        </div>
     )
 }
 
